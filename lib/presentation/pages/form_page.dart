@@ -45,7 +45,7 @@ class _FormPageState extends State<FormPage> {
     // than having to individually change instances of widgets.
     return Scaffold(
         appBar: AppBar(
-          backgroundColor:   Colors.brown,
+          backgroundColor: Colors.brown,
           foregroundColor: Colors.white,
           title: Text("Sign Up Page"),
         ),
@@ -100,8 +100,12 @@ class _FormPageState extends State<FormPage> {
                 ElevatedButton(
                     onPressed: () {
                       if (key.currentState!.validate()) {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => petPage()));
+                        Navigator.pushReplacement<void, void>(
+                          context,
+                          MaterialPageRoute<void>(
+                            builder: (BuildContext context) => const petPage(),
+                          ),
+                        );
                       }
                     },
                     child: Text(
